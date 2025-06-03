@@ -5,7 +5,7 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), starlight({
-    title: ''
+    title: '',
   })],
   site: 'https://your-domain.com',
   compressHTML: true
