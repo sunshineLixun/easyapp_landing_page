@@ -1,0 +1,39 @@
+---
+const features = [
+  {
+    title: "AI-Powered Analysis",
+    description: "Advanced algorithms analyze your data in real-time, providing actionable insights.",
+    icon: "📊"
+  },
+  {
+    title: "Smart Automation",
+    description: "Automate repetitive tasks with intelligent workflows that learn and adapt.",
+    icon: "⚡"
+  },
+  {
+    title: "Natural Language Processing",
+    description: "Understand and process human language with remarkable accuracy.",
+    icon: "💬"
+  },
+  {
+    title: "Predictive Intelligence",
+    description: "Anticipate trends and make data-driven decisions with confidence.",
+    icon: "🎯"
+  }
+];
+---
+
+<section id="features" class="py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="container">
+    <h2 class="text-4xl font-bold text-center mb-12">Powerful Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map(feature => (
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+          <p class="text-gray-600 dark:text-gray-300">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

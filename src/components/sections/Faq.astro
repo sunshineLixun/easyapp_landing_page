@@ -1,0 +1,34 @@
+---
+const faqs = [
+  {
+    question: "How does the AI technology work?",
+    answer: "Our AI technology uses advanced machine learning algorithms to analyze your data and provide insights. It continuously learns from patterns to improve accuracy over time."
+  },
+  {
+    question: "Is my data secure?",
+    answer: "Yes, we take data security seriously. All data is encrypted both in transit and at rest, and we comply with industry-standard security protocols."
+  },
+  {
+    question: "Can I integrate with other tools?",
+    answer: "Absolutely! We provide API access and support integration with many popular tools and platforms. Our documentation covers all integration options."
+  },
+  {
+    question: "What kind of support do you offer?",
+    answer: "We offer various levels of support depending on your plan, ranging from community support to dedicated account managers for enterprise customers."
+  }
+];
+---
+
+<section id="faq" class="py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="container">
+    <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+    <div class="max-w-3xl mx-auto space-y-6">
+      {faqs.map(faq => (
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mb-2">{faq.question}</h3>
+          <p class="text-gray-600 dark:text-gray-300">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

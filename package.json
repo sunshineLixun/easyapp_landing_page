@@ -1,0 +1,17 @@
+{
+  "name": "ai-app-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.0.3",
+    "@fontsource/inter": "^5.0.15",
+    "astro": "^3.6.0",
+    "tailwindcss": "^3.3.5"
+  }
+}

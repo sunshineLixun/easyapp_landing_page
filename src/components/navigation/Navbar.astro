@@ -1,0 +1,22 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<nav class="fixed w-full top-0 z-50 bg-white/80 dark:bg-dark/80 backdrop-blur-lg">
+  <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+    <a href="/" class="text-2xl font-bold">AI App</a>
+    
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#features" class="hover:text-primary">Features</a>
+      <a href="#pricing" class="hover:text-primary">Pricing</a>
+      <a href="#demo" class="hover:text-primary">Demo</a>
+      <ThemeToggle />
+    </div>
+
+    <button class="md:hidden" aria-label="Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</nav>

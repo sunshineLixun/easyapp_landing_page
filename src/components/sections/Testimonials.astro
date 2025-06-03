@@ -1,0 +1,48 @@
+---
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "Product Manager",
+    company: "Tech Corp",
+    content: "This AI platform has revolutionized how we handle data analysis. The insights we get are incredible.",
+    image: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"
+  },
+  {
+    name: "Michael Chen",
+    role: "CTO",
+    company: "Innovation Labs",
+    content: "The automation capabilities have saved us countless hours. It's like having an extra team member.",
+    image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Data Scientist",
+    company: "Analytics Pro",
+    content: "The accuracy of the AI models is impressive. It's helped us make better decisions faster.",
+    image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg"
+  }
+];
+---
+
+<section class="py-20">
+  <div class="container">
+    <h2 class="text-4xl font-bold text-center mb-12">What Our Users Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(testimonial => (
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <img
+            src={testimonial.image}
+            alt={testimonial.name}
+            class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
+          />
+          <p class="text-gray-600 dark:text-gray-300 mb-4 italic">"{testimonial.content}"</p>
+          <div class="text-center">
+            <p class="font-bold">{testimonial.name}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">{testimonial.company}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
