@@ -1,11 +1,16 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import starlight from "@astrojs/starlight";
+
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
-    tailwind(),
+    react(),
     starlight({
       title: "Easy AI Apps",
       social: [
@@ -29,6 +34,6 @@ export default defineConfig({
       ],
     }),
   ],
-  site: "https://your-domain.com",
+  site: "https://easyapp.site",
   compressHTML: true,
 });

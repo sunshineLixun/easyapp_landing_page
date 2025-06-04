@@ -1,4 +1,6 @@
 ---
+import PaymentButton from "@/components/ui/PaymentButton";
+
 const plans = [
   {
     name: "Starter",
@@ -8,8 +10,8 @@ const plans = [
       "Basic AI Analysis",
       "5 Automated Workflows",
       "Community Support",
-      "1GB Storage"
-    ]
+      "1GB Storage",
+    ],
   },
   {
     name: "Pro",
@@ -20,8 +22,8 @@ const plans = [
       "Unlimited Workflows",
       "Priority Support",
       "50GB Storage",
-      "API Access"
-    ]
+      "API Access",
+    ],
   },
   {
     name: "Enterprise",
@@ -32,34 +34,43 @@ const plans = [
       "Dedicated Support",
       "Unlimited Storage",
       "SLA Guarantee",
-      "Custom Integration"
-    ]
-  }
+      "Custom Integration",
+    ],
+  },
 ];
 ---
 
 <section id="pricing" class="py-20 bg-gray-50 dark:bg-gray-900">
   <div class="container">
-    <h2 class="text-4xl font-bold text-center mb-12">Simple, Transparent Pricing</h2>
+    <h2 class="text-4xl font-bold text-center mb-12">
+      Simple, Transparent Pricing
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      {plans.map(plan => (
-        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
-          <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
-          <p class="text-3xl font-bold mb-4">{plan.price}</p>
-          <p class="text-gray-600 dark:text-gray-300 mb-6">{plan.description}</p>
-          <ul class="space-y-3 mb-8">
-            {plan.features.map(feature => (
-              <li class="flex items-center">
-                <span class="mr-2">✓</span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary/90 transition-colors">
-            Get Started
-          </button>
-        </div>
-      ))}
+      {
+        plans.map((plan) => (
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
+            <p class="text-3xl font-bold mb-4">{plan.price}</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              {plan.description}
+            </p>
+            <ul class="space-y-3 mb-8">
+              {plan.features.map((feature) => (
+                <li class="flex items-center">
+                  <span class="mr-2">✓</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <PaymentButton
+              client:load
+              planName={plan.name}
+              planPrice={plan.price}
+              className="cursor-pointer w-full"
+            />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
