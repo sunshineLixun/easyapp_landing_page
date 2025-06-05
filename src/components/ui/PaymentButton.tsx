@@ -5,19 +5,20 @@ import { createCheckoutSession, type PaymentData } from "@/lib/payment";
 interface PaymentButtonProps {
   planName: string;
   planPrice: string;
+  priceId?: string;
   className?: string;
 }
 
 export default function PaymentButton({
   planName,
   planPrice,
+  priceId,
   className,
 }: PaymentButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handlePayment = async () => {
-
     setIsLoading(true);
     setError(null);
 
@@ -25,6 +26,7 @@ export default function PaymentButton({
       const paymentData: PaymentData = {
         planName,
         planPrice,
+        priceId,
       };
 
       await createCheckoutSession(paymentData);
@@ -40,8 +42,7 @@ export default function PaymentButton({
 
   const getButtonText = () => {
     if (isLoading) return "Processing...";
-
-    return 'Get EasyApp'
+    return "Get EasyApp";
   };
 
   return (

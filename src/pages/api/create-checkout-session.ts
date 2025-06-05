@@ -1,7 +1,8 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import Stripe from 'stripe';
+import type Stripe from 'stripe';
+import { getStripeClient } from '../../utils/stripe';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -19,9 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // 初始化 Stripe
-    const stripe = new Stripe(stripeSecretKey, {
-      apiVersion: '2025-05-28.basil',
-    });
+    const stripe = getStripeClient();
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],

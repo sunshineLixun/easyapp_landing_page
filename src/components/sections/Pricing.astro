@@ -1,20 +1,19 @@
 ---
+export const prerender = false;
 import PaymentButton from "@/components/ui/PaymentButton";
 
-const plans = [
-  {
-    name: "Pro",
-    price: "$49/mo",
-    description: "For professionals and growing teams",
-    features: [
-      "Advanced AI Analysis",
-      "Unlimited Workflows",
-      "Priority Support",
-      "50GB Storage",
-      "API Access",
-    ],
-  }
-];
+interface Plan {
+  name: string;
+  price: string;
+  description: string;
+  priceId: string;
+}
+
+// 从 Stripe 获取产品信息
+const response = await fetch(
+  `${import.meta.env.PUBLIC_SITE_URL}/api/get-products`
+);
+const plans: Plan[] = await response.json();
 ---
 
 <section id="pricing" class="py-20 bg-gray-50 dark:bg-gray-900">
@@ -31,18 +30,11 @@ const plans = [
             <p class="text-gray-600 dark:text-gray-300 mb-6">
               {plan.description}
             </p>
-            <ul class="space-y-3 mb-8">
-              {plan.features.map((feature) => (
-                <li class="flex items-center">
-                  <span class="mr-2">✓</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
             <PaymentButton
               client:load
               planName={plan.name}
               planPrice={plan.price}
+              priceId={plan.priceId}
               className="cursor-pointer w-full"
             />
           </div>

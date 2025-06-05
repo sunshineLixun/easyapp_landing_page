@@ -2,10 +2,9 @@ export const prerender = false;
 import { loadStripe } from '@stripe/stripe-js';
 
 // 你的 Stripe 公钥（在生产环境中应该从环境变量获取）
-const stripePromise = loadStripe(import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_your_stripe_key_here');
+const stripePromise = loadStripe(import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 // 产品价格 ID（在 Stripe Dashboard 中创建产品后获得）
-console.log('111', import.meta.env.STRIPE_PRICE_PRO)
 export const STRIPE_PRICES = {
   pro: import.meta.env.STRIPE_PRICE_PRO, // 替换为你的实际价格 ID
 };
