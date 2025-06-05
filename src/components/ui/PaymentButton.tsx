@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "./button";
 import { createCheckoutSession, type PaymentData } from "@/lib/payment";
 
@@ -17,22 +17,6 @@ export default function PaymentButton({
   const [error, setError] = useState<string | null>(null);
 
   const handlePayment = async () => {
-    // 免费计划不需要支付
-    if (
-      planName.toLowerCase() === "starter" ||
-      planPrice.toLowerCase() === "free"
-    ) {
-      // 这里可以处理免费计划的注册逻辑
-      window.location.href = "/signup?plan=starter";
-      return;
-    }
-
-    // 企业版需要联系销售
-    if (planName.toLowerCase() === "enterprise") {
-      // 重定向到联系销售页面
-      window.location.href = "/contact?plan=enterprise";
-      return;
-    }
 
     setIsLoading(true);
     setError(null);
@@ -57,14 +41,7 @@ export default function PaymentButton({
   const getButtonText = () => {
     if (isLoading) return "Processing...";
 
-    switch (planName.toLowerCase()) {
-      case "starter":
-        return "Get Started Free";
-      case "enterprise":
-        return "Contact Sales";
-      default:
-        return "Subscribe Now";
-    }
+    return 'Get EasyApp'
   };
 
   return (

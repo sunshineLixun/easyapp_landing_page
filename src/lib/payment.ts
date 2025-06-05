@@ -1,3 +1,4 @@
+export const prerender = false;
 import stripePromise, { STRIPE_PRICES } from './stripe';
 
 export interface PaymentData {
@@ -9,8 +10,8 @@ export interface PaymentData {
 export async function createCheckoutSession(paymentData: PaymentData) {
   try {
     // 获取对应计划的价格 ID
-    const priceId = getPriceId(paymentData.planName.toLowerCase());
-    
+    const priceId = getPriceId();
+    console.log('priceId', priceId)
     if (!priceId) {
       throw new Error(`No price ID found for plan: ${paymentData.planName}`);
     }
@@ -50,17 +51,9 @@ export async function createCheckoutSession(paymentData: PaymentData) {
   }
 }
 
-function getPriceId(planName: string): string | null {
-  switch (planName) {
-    case 'starter':
-      return STRIPE_PRICES.starter;
-    case 'pro':
-      return STRIPE_PRICES.pro;
-    case 'enterprise':
-      return STRIPE_PRICES.enterprise;
-    default:
-      return null;
-  }
+function getPriceId(): string | null {
+  console.log(STRIPE_PRICES.pro)
+  return STRIPE_PRICES.pro
 }
 
 // 用于处理一次性支付（如果不需要订阅）
