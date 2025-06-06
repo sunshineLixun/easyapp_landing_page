@@ -31,7 +31,7 @@ export const POST: APIRoute = async ({ request }) => {
         },
       ],
       mode: 'payment', // 或 'payment' 用于一次性付款
-      success_url: successUrl,
+      success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: cancelUrl,
       metadata: {
         planName: planName,

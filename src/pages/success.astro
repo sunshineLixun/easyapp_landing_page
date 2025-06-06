@@ -1,52 +1,76 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import "../styles/global.css";
+
 // 可以在这里验证支付状态
 const sessionId = Astro.url.searchParams.get("session_id");
+const allParams = Object.fromEntries(Astro.url.searchParams.entries());
+console.log('All URL parameters:', allParams);
+console.log('Session ID:', sessionId);
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Payment Successful - Easy AI Apps</title>
-  </head>
-  <body>
-    <div
-      class="min-h-screen bg-gray-50 flex flex-col justify-center items-center"
-    >
-      <div
-        class="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center"
-      >
-        <div class="text-green-500 text-6xl mb-4">✓</div>
-        <h1 class="text-2xl font-bold text-gray-900 mb-4">
+<MainLayout title="Payment Successful - Easy AI Apps" showNav={false}>
+  <div class="min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center p-4">
+    <div class="max-w-md w-full bg-card rounded-lg shadow-lg p-8 text-center space-y-6">
+      <div class="relative">
+        <div class="text-primary text-7xl mb-4 animate-checkmark">✓</div>
+        <div class="absolute -inset-1 bg-primary/10 rounded-full blur-lg opacity-50"></div>
+      </div>
+      
+      <div class="space-y-4 fade-in" style="animation-delay: 0.3s">
+        <h1 class="text-3xl font-bold text-foreground">
           Payment Successful!
         </h1>
-        <p class="text-gray-600 mb-6">
+        <p class="text-muted-foreground text-lg">
           Thank you for your subscription. You should receive a confirmation
           email shortly.
         </p>
-        {
-          sessionId && (
-            <p class="text-sm text-gray-500 mb-6">Session ID: {sessionId}</p>
-          )
-        }
-        <div class="space-y-3">
-          <a
-            href="/dashboard"
-            class="block w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
-          >
-            Go to Dashboard
-          </a>
-          <a
-            href="/"
-            class="block w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-md hover:bg-gray-300 transition-colors"
-          >
-            Back to Home
-          </a>
+      </div>
+
+      <div class="bg-muted rounded-lg p-4 space-y-3 fade-in" style="animation-delay: 0.6s">
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-muted-foreground">Order Status</span>
+          <span class="text-primary font-medium">Completed</span>
+        </div>
+        {sessionId && (
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-muted-foreground">Session ID</span>
+            <span class="text-foreground font-mono">{sessionId}</span>
+          </div>
+        )}
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-muted-foreground">Date</span>
+          <span class="text-foreground">{new Date().toLocaleDateString()}</span>
         </div>
       </div>
+
+      <div class="space-y-3 fade-in" style="animation-delay: 0.9s">
+        <a
+          href="/"
+          class="block w-full bg-primary text-primary-foreground py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium"
+        >
+          Back to Home
+        </a>
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+</MainLayout>
+
+<style>
+  @keyframes checkmark {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .animate-checkmark {
+    animation: checkmark 0.5s ease-in-out forwards;
+  }
+  .fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 
