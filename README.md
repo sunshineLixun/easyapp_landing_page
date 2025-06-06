@@ -36,13 +36,6 @@ pnpm install
 # Stripe Configuration
 PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_你的发布密钥
 STRIPE_SECRET_KEY=sk_test_你的私密密钥
-
-# Stripe Price IDs
-STRIPE_PRICE_PRO=price_你的Pro计划价格ID
-STRIPE_PRICE_ENTERPRISE=price_你的企业计划价格ID
-
-# 网站URL
-PUBLIC_SITE_URL=http://localhost:4321
 ```
 
 ### 开发
