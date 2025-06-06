@@ -4,7 +4,7 @@ import starlight from "@astrojs/starlight";
 
 import react from "@astrojs/react";
 
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
@@ -41,7 +41,7 @@ export default defineConfig({
   site: "https://easyapp.site",
   compressHTML: true,
 
-  adapter: node({
-    mode: "standalone",
+  adapter: vercel({
+    webAnalytics: true
   }),
 });
