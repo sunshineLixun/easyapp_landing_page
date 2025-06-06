@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/sections/Hero.astro";
 import Features from "../components/sections/Features.astro";
 import Demo from "../components/sections/Demo.astro";
-import Pricing from "../components/sections/Pricing.astro";
+import Pricing from "../components/sections/Pricing";
 import Testimonials from "../components/sections/Testimonials.astro";
 import Faq from "../components/sections/Faq.astro";
 import Newsletter from "../components/sections/Newsletter.astro";
@@ -16,7 +16,7 @@ import "../styles/global.css";
   <Hero />
   <Features />
   <Demo />
-  <Pricing />
+  <Pricing client:load />
   <Testimonials />
   <Faq />
   <Newsletter />

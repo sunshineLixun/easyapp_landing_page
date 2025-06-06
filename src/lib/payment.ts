@@ -23,7 +23,7 @@ export async function createCheckoutSession(paymentData: PaymentData) {
         priceId: paymentData.priceId,
         planName: paymentData.planName,
         successUrl: `${window.location.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancelUrl: `${window.location.origin}/pricing`,
+        cancelUrl: `${window.location.origin}/#pricing`,
       }),
     });
 

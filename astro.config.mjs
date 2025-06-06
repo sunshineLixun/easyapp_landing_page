@@ -4,11 +4,14 @@ import starlight from "@astrojs/starlight";
 
 import react from "@astrojs/react";
 
+import node from "@astrojs/node";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
   integrations: [
     react(),
     starlight({
@@ -34,6 +37,11 @@ export default defineConfig({
       ],
     }),
   ],
+
   site: "https://easyapp.site",
   compressHTML: true,
+
+  adapter: node({
+    mode: "standalone",
+  }),
 });

@@ -1,18 +1,20 @@
 ---
-import CtaButton from '../ui/CtaButton.astro';
+import CtaButton from "../ui/CtaButton";
 ---
 
-<section class="relative min-h-screen flex items-center justify-center py-20 px-4">
-  <div class="max-w-7xl mx-auto text-center">
-    <h1 class="text-5xl md:text-7xl font-bold mb-6">
-      Transform Your Workflow with AI
-    </h1>
-    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-      Harness the power of artificial intelligence to streamline your work and boost productivity
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <CtaButton href="#demo">Try Demo</CtaButton>
-      <CtaButton href="#pricing" variant="secondary">View Pricing</CtaButton>
+<section class="py-20 bg-white dark:bg-gray-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+        AI-Powered App Development
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+        Build powerful applications with our AI-driven platform. Fast, efficient, and scalable.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <CtaButton href="#demo" variant="secondary" client:load>Try Demo</CtaButton>
+        <CtaButton href="#pricing" variant="secondary" client:load>View Pricing</CtaButton>
+      </div>
     </div>
   </div>
 </section>

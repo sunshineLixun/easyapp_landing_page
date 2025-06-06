@@ -1,16 +1,32 @@
 ---
-import CtaButton from '../ui/CtaButton.astro';
+import CtaButton from '../ui/CtaButton';
 ---
 
-<section class="py-20 bg-primary text-white">
-  <div class="container text-center">
-    <h2 class="text-4xl font-bold mb-4">Ready to Transform Your Workflow?</h2>
-    <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+<section class="py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+      Ready to Transform Your Workflow?
+    </h2>
+    <p class="text-xl mb-10 text-blue-50 dark:text-blue-100 max-w-2xl mx-auto">
       Join thousands of satisfied users who have revolutionized their work with our AI-powered platform.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <CtaButton href="#demo" variant="secondary">Watch Demo</CtaButton>
-      <CtaButton href="#pricing">Get Started Free</CtaButton>
+      <CtaButton 
+        href="#demo" 
+        variant="secondary" 
+        className="bg-white hover:bg-blue-50 text-blue-600 dark:bg-blue-100 dark:hover:bg-blue-200 dark:text-blue-800"
+        client:load
+      >
+        Watch Demo
+      </CtaButton>
+      <CtaButton 
+        href="#pricing" 
+        variant="primary"
+        className="bg-blue-800 hover:bg-blue-900 text-white dark:bg-blue-900 dark:hover:bg-blue-950"
+        client:load
+      >
+        Get Started Free
+      </CtaButton>
     </div>
   </div>
 </section>
